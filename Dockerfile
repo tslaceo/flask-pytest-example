@@ -1,7 +1,7 @@
-FROM python
+FROM python:2
 WORKDIR /flask-pytest-example
 RUN python --version
-RUN pip3 freeze > requirements.txt
-RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
+RUN pip freeze > requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY . .
 CMD ["python", "-u", "app.py"]
