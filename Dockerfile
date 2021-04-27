@@ -1,6 +1,7 @@
 FROM python
 WORKDIR /flask-pytest-example
-RUN pip freeze > requirements.txt
+COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN pip freeze
 COPY . .
 CMD ["python", "-u", "app.py"]
