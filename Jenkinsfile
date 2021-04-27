@@ -20,11 +20,6 @@ pipeline {
                 git 'https://github.com/tslaceo/flask-pytest-example.git'
             }
         }
-        stage ('run tests') {
-            steps {
-                echo 'npm run test'
-            }
-        }
         stage ('build docker') {
             steps {
                 script {
