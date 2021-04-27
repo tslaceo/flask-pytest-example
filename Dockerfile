@@ -1,5 +1,5 @@
 FROM python
-WORKDIR /flask-pytest-example
+WORKDIR /app
 RUN python --version
 RUN pip install --upgrade pip
 RUN pip3 install flask 
