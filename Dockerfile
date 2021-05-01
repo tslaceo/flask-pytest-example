@@ -6,4 +6,5 @@ RUN pip freeze
 #RUN chmod 777 tests
 #RUN pytest tests/
 COPY . .
+EXPOSE 5000
 CMD ["python", "-u", "app.py"]
