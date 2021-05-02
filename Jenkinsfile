@@ -43,7 +43,7 @@ pipeline {
         }
         stage ('docker run') {
             steps{
-                sh "docker run -d --name flask-pytest" + $BUILD_NUMBER + " -p 5000:5000 " + registry + ":$BUILD_NUMBER"
+                sh "docker run -d -p 5000:5000 " + registry + ":$BUILD_NUMBER"
             }
         }
         stage ('curl test') {
