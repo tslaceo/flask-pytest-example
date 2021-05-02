@@ -36,6 +36,18 @@ pipeline {
                 }
             }
         }
+        stage ('docker pull') {
+            steps{
+                docker.withRegistry( '', registryCred){
+                    dockerImage.pull()
+                }
+            }
+        }
+        stage ('docker run') {
+            steps{
+                sh "docker run -d --name flask-pytest -p 5000:5000 " + registry + ":$BUILD_NUMBER"
+            }
+        }
         stage ('cleaning') {
             steps {
                 sh "docker rmi $registry:$BUILD_NUMBER"
