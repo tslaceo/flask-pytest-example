@@ -46,9 +46,9 @@ pipeline {
                 sh "docker run -d --name flask-pytest -p 5000:5000 " + registry + ":$BUILD_NUMBER"
             }
         }
-        stage ('cleaning') {
+        stage ('curl test') {
             steps {
-                sh "docker rmi $registry:$BUILD_NUMBER"
+                sh "curl localhost:5000"
             }
         }
     }
