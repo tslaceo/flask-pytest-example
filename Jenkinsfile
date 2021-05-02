@@ -38,8 +38,7 @@ pipeline {
         }
         stage ('docker pull') {
             steps{
-                docker.withRegistry( '', registryCred){
-                    dockerImage.pull()
+                sh "docker pull $registry:$BUILD_NUMBER"
                 }
             }
         }
