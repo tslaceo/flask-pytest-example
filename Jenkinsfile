@@ -39,7 +39,6 @@ pipeline {
         stage ('docker pull') {
             steps{
                 sh "docker pull $registry:$BUILD_NUMBER"
-                }
             }
         }
         stage ('docker run') {
